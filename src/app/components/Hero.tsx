@@ -5,7 +5,11 @@ export default function Hero() {
         <div className='mb-8'>
           <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6'>
             Hi, I'm{' '}
-            <span className='text-blue-600 dark:text-blue-400'>Devin Han</span>
+            <span className='relative inline-block'>
+              <span className='bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-[length:200%_100%] animate-gradient-x bg-clip-text text-transparent animate-pulse'>
+                Devin Han
+              </span>
+            </span>
           </h1>
           <p className='text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto'>
             Full-Stack Developer & Creative Problem Solver

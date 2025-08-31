@@ -1,15 +1,52 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.documentElement.classList.toggle('dark');
   };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+      // Close mobile menu if open
+      setIsMenuOpen(false);
+    }
+  };
+
+  // Update active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'skills', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
+  ];
 
   return (
     <header className='fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700'>
@@ -24,30 +61,19 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className='hidden md:flex space-x-8'>
-            <a
-              href='#about'
-              className='text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-            >
-              About
-            </a>
-            <a
-              href='#skills'
-              className='text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-            >
-              Skills
-            </a>
-            <a
-              href='#projects'
-              className='text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-            >
-              Projects
-            </a>
-            <a
-              href='#contact'
-              className='text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-            >
-              Contact
-            </a>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative px-3 py-2 rounded-lg transition-all duration-300 ${
+                  activeSection === item.id
+                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 font-medium'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
 
           {/* Theme Toggle & Mobile Menu Button */}
@@ -84,30 +110,19 @@ export default function Header() {
         {isMenuOpen && (
           <div className='md:hidden'>
             <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-gray-700'>
-              <a
-                href='#about'
-                className='block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-              >
-                About
-              </a>
-              <a
-                href='#skills'
-                className='block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-              >
-                Skills
-              </a>
-              <a
-                href='#projects'
-                className='block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-              >
-                Projects
-              </a>
-              <a
-                href='#contact'
-                className='block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors'
-              >
-                Contact
-              </a>
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full text-left px-3 py-2 rounded-lg transition-all duration-300 ${
+                    activeSection === item.id
+                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 font-medium'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </div>
         )}

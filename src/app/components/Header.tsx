@@ -1,15 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -81,8 +86,11 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               className='p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors'
+              aria-label={`Switch to ${
+                mounted && resolvedTheme === 'light' ? 'dark' : 'light'
+              } mode`}
             >
-              {isDark ? '🌞' : '🌙'}
+              {mounted ? (resolvedTheme === 'dark' ? '🌞' : '🌙') : '🌙'}
             </button>
 
             <button

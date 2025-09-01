@@ -2,6 +2,21 @@
 
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import {
+  Button,
+  ContactInfoCard,
+  FormInput,
+  FormTextarea,
+  SectionHeader,
+  SocialLink,
+  StatusMessage,
+  EnvelopeIcon,
+  MapPinIcon,
+  BriefcaseIcon,
+  GithubLogoIcon,
+  LinkedinLogoIcon,
+  TwitterLogoIcon,
+} from './ui';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -87,15 +102,10 @@ export default function Contact() {
   return (
     <section id="contact" className="px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl dark:text-white">
-            Get In Touch
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-            I&apos;m always open to discussing new opportunities, interesting projects, or just
-            having a chat.
-          </p>
-        </div>
+        <SectionHeader
+          title="Get In Touch"
+          description="I'm always open to discussing new opportunities, interesting projects, or just having a chat."
+        />
 
         <div className="grid gap-12 lg:grid-cols-2">
           <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -104,87 +114,50 @@ export default function Contact() {
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                  placeholder="Your name"
-                />
-              </div>
+              <FormInput
+                id="name"
+                name="name"
+                label="Name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                required
+              />
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                  placeholder="your.email@example.com"
-                />
-              </div>
+              <FormInput
+                id="email"
+                name="email"
+                label="Email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your.email@example.com"
+                required
+              />
 
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                  placeholder="What's this about?"
-                />
-              </div>
+              <FormInput
+                id="subject"
+                name="subject"
+                label="Subject"
+                type="text"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="What's this about?"
+                required
+              />
 
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full resize-none rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                  placeholder="Tell me more about your project or inquiry..."
-                />
-              </div>
+              <FormTextarea
+                id="message"
+                name="message"
+                label="Message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell me more about your project or inquiry..."
+                required
+              />
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="flex w-full items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-blue-700 disabled:bg-blue-400"
-              >
+              <Button type="submit" disabled={isSubmitting} className="w-full">
                 {isSubmitting ? (
                   <>
                     <svg
@@ -212,48 +185,20 @@ export default function Contact() {
                 ) : (
                   'Send Message'
                 )}
-              </button>
+              </Button>
 
               {submitStatus === 'success' && (
-                <div className="mt-4 rounded-lg border border-green-200 bg-green-50 p-4">
-                  <div className="flex items-center">
-                    <svg
-                      className="mr-2 h-5 w-5 text-green-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-sm text-green-800">
-                      Message sent successfully! I&apos;ll get back to you soon.
-                    </span>
-                  </div>
-                </div>
+                <StatusMessage
+                  type="success"
+                  message="Message sent successfully! I'll get back to you soon."
+                />
               )}
 
               {submitStatus === 'error' && (
-                <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4">
-                  <div className="flex items-center">
-                    <svg
-                      className="mr-2 h-5 w-5 text-red-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-sm text-red-800">
-                      Failed to send message. Please try again or contact me directly.
-                    </span>
-                  </div>
-                </div>
+                <StatusMessage
+                  type="error"
+                  message="Failed to send message. Please try again or contact me directly."
+                />
               )}
             </form>
           </div>
@@ -271,58 +216,34 @@ export default function Contact() {
             </div>
 
             <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                  <span className="text-xl text-blue-600 dark:text-blue-400">📧</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-300">devin@example.com</p>
-                </div>
-              </div>
+              <ContactInfoCard
+                icon={<EnvelopeIcon />}
+                title="Email"
+                content="devinhworks@gmail.com"
+              />
 
-              <div className="flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                  <span className="text-xl text-blue-600 dark:text-blue-400">📍</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-300">San Francisco, CA</p>
-                </div>
-              </div>
+              <ContactInfoCard icon={<MapPinIcon />} title="Location" content="Sunnyvale, CA" />
 
-              <div className="flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                  <span className="text-xl text-blue-600 dark:text-blue-400">💼</span>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white">Availability</h4>
-                  <p className="text-gray-600 dark:text-gray-300">Open to new opportunities</p>
-                </div>
-              </div>
+              <ContactInfoCard
+                icon={<BriefcaseIcon />}
+                title="Availability"
+                content="Open to new opportunities"
+              />
             </div>
 
             <div className="pt-6">
               <h4 className="mb-4 font-medium text-gray-900 dark:text-white">Follow Me</h4>
               <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-colors hover:bg-blue-100 hover:text-blue-600 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-blue-900/30 dark:hover:text-blue-400"
-                >
-                  <span className="text-lg">🐙</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-colors hover:bg-blue-100 hover:text-blue-600 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-blue-900/30 dark:hover:text-blue-400"
-                >
-                  <span className="text-lg">💼</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-colors hover:bg-blue-100 hover:text-blue-600 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-blue-900/30 dark:hover:text-blue-400"
-                >
-                  <span className="text-lg">🐦</span>
-                </a>
+                <SocialLink
+                  href="https://github.com/DevByDevin"
+                  icon={<GithubLogoIcon />}
+                  label="GitHub"
+                />
+                <SocialLink
+                  href="https://www.linkedin.com/in/devinh1109/"
+                  icon={<LinkedinLogoIcon />}
+                  label="LinkedIn"
+                />
               </div>
             </div>
           </div>

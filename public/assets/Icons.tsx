@@ -1513,8 +1513,8 @@ export const AzureIcon: React.FC<IconProps> = ({ className }) => (
         gradientTransform="matrix(1 0 0 -1 1075 158)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#114a8b" />
-        <stop offset="1" stop-color="#0669bc" />
+        <stop offset="0" stopColor="#114a8b" />
+        <stop offset="1" stopColor="#0669bc" />
       </linearGradient>
       <linearGradient
         id="ac2a6fc2-ca48-4327-9a3c-d4dcc3256e15"
@@ -1540,8 +1540,8 @@ export const AzureIcon: React.FC<IconProps> = ({ className }) => (
         gradientTransform="matrix(1 0 0 -1 1075 158)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#3ccbf4" />
-        <stop offset="1" stop-color="#2892df" />
+        <stop offset="0" stopColor="#3ccbf4" />
+        <stop offset="1" stopColor="#2892df" />
       </linearGradient>
     </defs>
     <path

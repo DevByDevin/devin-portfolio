@@ -25,32 +25,32 @@ export interface SkillFlowerData {
 
 const SKILL_FLOWER_ITEMS: SkillFlowerItem[] = [
   {
-    icon: <ReactIcon className="h-4 w-4 text-blue-600" />,
+    icon: <ReactIcon className="h-3 w-3 text-blue-600 sm:h-4 sm:w-4" />,
     name: 'React',
     category: 'frontend',
   },
   {
-    icon: <ViteIcon className="h-4 w-4 text-purple-600" />,
+    icon: <ViteIcon className="h-3 w-3 text-purple-600 sm:h-4 sm:w-4" />,
     name: 'Vite',
     category: 'tooling',
   },
   {
-    icon: <TailwindIcon className="h-4 w-4 text-cyan-600" />,
+    icon: <TailwindIcon className="h-3 w-3 text-cyan-600 sm:h-4 sm:w-4" />,
     name: 'Tailwind',
     category: 'frontend',
   },
   {
-    icon: <ZustandIcon className="h-4 w-4 text-orange-600" />,
+    icon: <ZustandIcon className="h-3 w-3 text-orange-600 sm:h-4 sm:w-4" />,
     name: 'Zustand',
     category: 'frontend',
   },
   {
-    icon: <AzureIcon className="h-4 w-4 text-blue-700" />,
+    icon: <AzureIcon className="h-3 w-3 text-blue-700 sm:h-4 sm:w-4" />,
     name: 'Azure',
     category: 'cloud',
   },
   {
-    icon: <TsIcon className="h-4 w-4 text-blue-500" />,
+    icon: <TsIcon className="h-3 w-3 text-blue-500 sm:h-4 sm:w-4" />,
     name: 'TypeScript',
     category: 'language',
   },
@@ -67,7 +67,7 @@ const SKILL_FLOWER_CENTER = {
 export const SKILLS_ITEMS = SKILL_FLOWER_ITEMS.map(item => (
   <div key={item.name} className="flex flex-col items-center">
     {item.icon}
-    <span className="text-[8px] font-medium text-white">{item.name}</span>
+    <span className="hidden text-[8px] font-medium text-white sm:block">{item.name}</span>
   </div>
 ));
 

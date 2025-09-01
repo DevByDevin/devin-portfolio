@@ -4,7 +4,7 @@ export default function Hero() {
       <div className='max-w-7xl mx-auto text-center'>
         <div className='mb-8'>
           <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6'>
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className='relative inline-block'>
               <span className='bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-[length:200%_100%] animate-gradient-x bg-clip-text text-transparent animate-pulse'>
                 Devin Han

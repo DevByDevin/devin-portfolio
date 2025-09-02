@@ -71,7 +71,7 @@ export const PROJECTS: Project[] = [
         color: 'bg-yellow-500',
       },
     ],
-    liveUrl: 'https://devinhan.dev',
+    liveUrl: 'https://github.com/DevByDevin/my-adventure',
   },
   {
     id: 2,
@@ -107,7 +107,7 @@ export const PROJECTS: Project[] = [
         color: 'bg-cyan-500',
       },
     ],
-    liveUrl: 'https://your-deployed-url.com',
+    liveUrl: 'https://github.com/DevByDevin/Threejs-react',
   },
   {
     id: 3,
@@ -143,6 +143,6 @@ export const PROJECTS: Project[] = [
         color: 'bg-slate-700',
       },
     ],
-    liveUrl: 'https://your-domain.com',
+    liveUrl: 'https://github.com/DevByDevin/my-adventure',
   },
 ];

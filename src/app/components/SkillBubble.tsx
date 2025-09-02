@@ -11,22 +11,21 @@ interface SkillFlowerProps {
 export default function SkillBubble({ items }: SkillFlowerProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  // 使用响应式尺寸 hook
   const itemSize = useResponsiveSize({
-    mobile: 60, // 小屏幕时 60px
-    desktop: 80, // 大屏幕时 80px
-    breakpoint: 768, // 768px 作为断点
+    mobile: 60,
+    desktop: 80,
+    breakpoint: 768,
   });
 
   const gapSize = useResponsiveSize({
-    mobile: 2, // 小屏幕时 2px 间距
-    desktop: 6, // 大屏幕时 6px 间距（增加）
+    mobile: 2,
+    desktop: 6,
     breakpoint: 768,
   });
 
   const paddingSize = useResponsiveSize({
-    mobile: 4, // 小屏幕时 4px 内边距
-    desktop: 12, // 大屏幕时 12px 内边距（增加）
+    mobile: 4,
+    desktop: 12,
     breakpoint: 768,
   });
 
@@ -36,7 +35,6 @@ export default function SkillBubble({ items }: SkillFlowerProps) {
     }
 
     if (hoveredIndex === index) {
-      // 悬停的元素放大并添加发光效果
       return {
         transform: 'scale(1.2)',
         zIndex: '20',
@@ -46,7 +44,6 @@ export default function SkillBubble({ items }: SkillFlowerProps) {
       };
     }
 
-    // 计算当前元素与悬停元素的距离
     const hoveredRow = Math.floor(hoveredIndex / 5);
     const hoveredCol = hoveredIndex % 5;
     const currentRow = Math.floor(index / 5);
@@ -58,7 +55,7 @@ export default function SkillBubble({ items }: SkillFlowerProps) {
 
     if (distance <= 2) {
       const angle = Math.atan2(currentRow - hoveredRow, currentCol - hoveredCol);
-      const pushDistance = Math.max(0, (2 - distance) * (itemSize * 0.25)); // 根据 item 尺寸调整推离距离
+      const pushDistance = Math.max(0, (2 - distance) * (itemSize * 0.25));
 
       return {
         transform: `translate(${Math.cos(angle) * pushDistance}px, ${Math.sin(angle) * pushDistance}px) scale(0.9)`,

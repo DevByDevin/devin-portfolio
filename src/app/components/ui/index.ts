@@ -8,5 +8,4 @@ export { default as SkillTag } from './SkillTag';
 export { default as SocialLink } from './SocialLink';
 export { default as StatusMessage } from './StatusMessage';
 
-// 重新导出所有图标
 export * from './icons';

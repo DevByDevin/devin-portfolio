@@ -1,4 +1,4 @@
-// @ts-nocheck - Skip TypeScript checking for this 3D component
+// @ts-nocheck
 import { useRef, useEffect } from 'react';
 import { useGLTF, useVideoTexture } from '@react-three/drei';
 import { useGSAP } from '@gsap/react';

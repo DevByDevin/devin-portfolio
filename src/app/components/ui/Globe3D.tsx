@@ -35,7 +35,7 @@ export default function Globe3D() {
         width={globeSize}
         backgroundColor="rgba(0,0,0,0)"
         showAtmosphere
-        globeImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg"
+        globeImageUrl="https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg"
         onGlobeReady={handleGlobeReady}
         arcsData={ARCS_DATA}
         arcColor={'color'}

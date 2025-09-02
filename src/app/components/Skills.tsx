@@ -4,7 +4,7 @@ import { SKILL_BUBBLE_ITEMS } from '../constants/skillBubble';
 import { CURRENTLY_LEARNING } from '../constants/skills';
 import { ExpandButton, SkillTag } from './ui';
 import { useExpandableList } from '../hooks';
-import SkillBubble from './SkillBubble';
+import SkillBubble from './ui/SkillBubble';
 
 import { useTranslations } from 'next-intl';
 

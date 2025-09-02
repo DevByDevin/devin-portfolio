@@ -36,7 +36,7 @@ export default function FormTextarea({
         onChange={onChange}
         required={required}
         rows={rows}
-        className="w-full resize-none rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        className="w-full resize-none rounded-lg border border-gray-300/40 bg-gray-100/60 px-4 py-3 text-gray-900 backdrop-blur-md placeholder:text-gray-500 focus:border-gray-400 focus:ring-0 dark:border-white/10 dark:bg-black/40 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-white/20"
         placeholder={placeholder}
       />
     </div>

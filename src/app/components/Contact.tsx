@@ -108,7 +108,7 @@ export default function Contact() {
         <SectionHeader title={t('title')} description={t('description')} />
 
         <div className="grid-2-cols">
-          <div className="card-large">
+          <div className="card-frosted">
             <h3 className="h3">{t('form.title')}</h3>
 
             <form onSubmit={handleSubmit} className="form">
@@ -208,18 +208,21 @@ export default function Contact() {
                 icon={<EnvelopeIcon />}
                 title={t('info.email')}
                 content="devinhworks@gmail.com"
+                className="card-frosted"
               />
 
               <ContactInfoCard
                 icon={<MapPinIcon />}
                 title={t('info.location')}
                 content="Sunnyvale, CA"
+                className="card-frosted"
               />
 
               <ContactInfoCard
                 icon={<BriefcaseIcon />}
                 title={t('info.availability')}
                 content={t('info.availabilityText')}
+                className="card-frosted"
               />
             </div>
 

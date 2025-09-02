@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 px-4 pb-12 text-white sm:px-6 lg:px-8 dark:bg-black">
-      <div className="border-t border-gray-800 pt-8">
+    <footer className="bg-gray-100 px-4 pb-12 text-white sm:px-6 lg:px-8 dark:bg-white/10">
+      <div className="border-gray-800 pt-8">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <p className="mb-4 text-sm text-gray-400 md:mb-0">
             © 2025 Devin Han. All rights reserved.

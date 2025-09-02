@@ -23,7 +23,7 @@ export default function About() {
               <span className="skill-tag-alt">{t('quickFacts.database')}</span>
             </div>
           </div>
-          <div className="w-full lg:h-full">
+          <div className="about-panel w-full lg:h-full">
             <h3 className="h3">{t('whoIAmTitle')}</h3>
             {t.raw('description').map((paragraph: string, index: number) => (
               <p key={index} className="body">

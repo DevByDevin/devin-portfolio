@@ -87,7 +87,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleLanguage}
-              className="theme-button"
+              className="language-button"
               aria-label={`Switch to ${locale === 'en' ? 'Chinese' : 'English'} language`}
             >
               {locale === 'en' ? t('languageSwitch.zh') : t('languageSwitch.en')}

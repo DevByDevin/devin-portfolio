@@ -9,7 +9,7 @@ import MobileNav from '@/app/components/MobileNav';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-black">
       <Header />
       <main className="pb-20 lg:pb-0">
         <Hero />

@@ -7,5 +7,9 @@ export { default as SectionHeader } from './SectionHeader';
 export { default as SkillTag } from './SkillTag';
 export { default as SocialLink } from './SocialLink';
 export { default as StatusMessage } from './StatusMessage';
+export { default as ProjectCard } from './ProjectCard';
+export { default as NavigationArrows } from './NavigationArrows';
+export { default as IndicatorDots } from './IndicatorDots';
+export { default as ProjectIcon } from './ProjectIcon';
 
 export * from './icons';

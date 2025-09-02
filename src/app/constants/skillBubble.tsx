@@ -33,7 +33,7 @@ interface SkillBubbleData {
   color: string;
 }
 
-const IconComponent = ({
+export const IconComponent = ({
   icon,
   className,
 }: {

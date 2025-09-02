@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import '@/app/globals.css';
 import { ThemeProvider } from 'next-themes';
 import { NextIntlClientProvider } from 'next-intl';
+import { Analytics } from '@vercel/analytics/react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Analytics />
         <NextIntlClientProvider>
           <ThemeProvider
             attribute="class"

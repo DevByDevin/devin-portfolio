@@ -1,39 +1,39 @@
 import StatCard from './StatCard';
-import { ABOUT_SECTION, QUICK_FACTS, STAT_CARDS, WHO_I_AM_DESCRIPTION } from '../constants/about';
-import { LAYOUT_STYLES, TYPOGRAPHY_STYLES, CARD_STYLES, TAG_STYLES } from '../constants/styles';
+import { useTranslations } from 'next-intl';
 
 export default function About() {
+  const t = useTranslations('about');
+
   return (
-    <section id="about" className={LAYOUT_STYLES.sectionAlt}>
-      <div className={LAYOUT_STYLES.container}>
-        <div className={`${TYPOGRAPHY_STYLES.textCenter} ${LAYOUT_STYLES.mb16}`}>
-          <h2 className={TYPOGRAPHY_STYLES.h2}>{ABOUT_SECTION.title}</h2>
-          <p className={TYPOGRAPHY_STYLES.subtitle}>{ABOUT_SECTION.subtitle}</p>
+    <section id="about" className="section-alt">
+      <div className="container">
+        <div className="mb-16 text-center">
+          <h2 className="h2">{t('title')}</h2>
+          <p className="subtitle">{t('subtitle')}</p>
         </div>
 
         <div className="flex flex-col items-start gap-8 lg:flex-row lg:gap-12">
-          <div className={CARD_STYLES.cardWhite}>
-            <h4 className={TYPOGRAPHY_STYLES.h4}>{ABOUT_SECTION.quickFactsTitle}</h4>
+          <div className="card-white">
+            <h4 className="h4">{t('quickFactsTitle')}</h4>
             <div className="flex flex-wrap gap-2 lg:gap-3">
-              {QUICK_FACTS.map((fact, index) => (
-                <span key={index} className={TAG_STYLES.skillTagAlt}>
-                  {fact.text}
-                </span>
-              ))}
+              <span className="skill-tag-alt">{t('quickFacts.fullStack')}</span>
+              <span className="skill-tag-alt">{t('quickFacts.reactExpert')}</span>
+              <span className="skill-tag-alt">{t('quickFacts.nodejs')}</span>
+              <span className="skill-tag-alt">{t('quickFacts.uiux')}</span>
+              <span className="skill-tag-alt">{t('quickFacts.database')}</span>
             </div>
           </div>
           <div className="w-full lg:h-full">
-            <h3 className={TYPOGRAPHY_STYLES.h3}>{ABOUT_SECTION.whoIAmTitle}</h3>
-            {WHO_I_AM_DESCRIPTION.map((paragraph, index) => (
-              <p key={index} className={TYPOGRAPHY_STYLES.body}>
+            <h3 className="h3">{t('whoIAmTitle')}</h3>
+            {t.raw('description').map((paragraph: string, index: number) => (
+              <p key={index} className="body">
                 {paragraph}
               </p>
             ))}
 
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-8 lg:gap-6">
-              {STAT_CARDS.map((stat, index) => (
-                <StatCard key={index} value={stat.value} label={stat.label} />
-              ))}
+              <StatCard value="4+" label={t('stats.experience')} />
+              <StatCard value="20+" label={t('stats.projects')} />
             </div>
           </div>
         </div>

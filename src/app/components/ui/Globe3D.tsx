@@ -1,9 +1,8 @@
-'use client';
-
 import dynamic from 'next/dynamic';
 import { useResponsiveSize } from '../../hooks/useResponsiveSize';
 import { useRef } from 'react';
 import { ARCS_DATA, RINGS_DATA } from '@/app/constants/globeData';
+import type { GlobeMethods } from 'react-globe.gl';
 
 const Globe = dynamic(() => import('react-globe.gl'), {
   ssr: false,
@@ -16,13 +15,15 @@ export default function Globe3D() {
     breakpoint: 640,
   });
 
-  const globeRef = useRef<any>(null);
+  const globeRef = useRef<GlobeMethods | undefined>(undefined);
 
   const handleGlobeReady = () => {
-    const controls = globeRef.current.controls();
-    if (controls) {
-      controls.autoRotate = true;
-      controls.autoRotateSpeed = 2;
+    if (globeRef.current) {
+      const controls = globeRef.current.controls();
+      if (controls) {
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 2;
+      }
     }
   };
 

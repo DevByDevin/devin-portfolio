@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "greeting": "你好，我是",
+    "name": "韩冬",
+    "title": "全球全栈开发者 & 数字游民",
+    "description": "从中国到美国，我在各大洲建立了我的职业生涯。准备好在全球范围内工作，为世界各地的团队带来创新解决方案。",
+    "viewWork": "查看我的作品",
+    "getInTouch": "联系我"
+  },
+  "about": {
+    "title": "关于我",
+    "subtitle": "更好地了解我",
+    "whoIAmTitle": "我是谁",
+    "quickFactsTitle": "快速了解",
+    "quickFacts": {
+      "fullStack": "全栈开发",
+      "reactExpert": "React & Next.js 专家",
+      "nodejs": "Node.js & TypeScript",
+      "uiux": "UI/UX 设计",
+      "database": "数据库设计"
+    },
+    "stats": {
+      "experience": "年经验",
+      "projects": "完成项目"
+    },
+    "description": [
+      "我是一名充满激情的全栈开发者，热爱创造创新解决方案。凭借现代网络技术的专业知识，我喜欢将复杂的问题转化为简单、美观且直观的设计。",
+      "当我不在编码时，你会发现我在探索新技术、为开源项目做贡献，或者与开发者社区分享知识。"
+    ]
+  },
+  "header": {
+    "title": "Devin Han",
+    "nav": {
+      "about": "关于",
+      "skills": "技能",
+      "projects": "项目",
+      "contact": "联系"
+    },
+    "languageSwitch": {
+      "en": "EN",
+      "zh": "中文"
+    }
+  },
+  "skills": {
+    "title": "技能与技术",
+    "subtitle": "我的技术专长和使用的工具",
+    "currentlyLearningTitle": "正在学习"
+  },
+  "contact": {
+    "title": "联系我",
+    "description": "我总是乐于讨论新机会、有趣的项目，或者只是聊聊天。",
+    "form": {
+      "title": "给我发消息",
+      "name": "姓名",
+      "email": "邮箱",
+      "subject": "主题",
+      "message": "消息",
+      "namePlaceholder": "您的姓名",
+      "emailPlaceholder": "your.email@example.com",
+      "subjectPlaceholder": "这是关于什么的？",
+      "messagePlaceholder": "告诉我更多关于您的项目或咨询...",
+      "sendButton": "发送",
+      "sending": "发送中..."
+    },
+    "status": {
+      "success": "消息发送成功！我会尽快回复您。",
+      "error": "发送消息失败。请重试或直接联系我。"
+    },
+    "connect": {
+      "title": "让我们联系",
+      "description": "我目前可以接受自由职业和全职工作机会。无论您有问题还是只想打个招呼，我都会尽力回复您！",
+      "followMe": "关注我"
+    },
+    "info": {
+      "email": "邮箱",
+      "location": "位置",
+      "availability": "可用性",
+      "availabilityText": "对新机会开放"
+    }
+  }
+}

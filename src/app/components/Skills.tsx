@@ -1,13 +1,16 @@
 'use client';
 
 import { SKILL_BUBBLE_ITEMS } from '../constants/skillBubble';
-import { CURRENTLY_LEARNING, SKILLS_SECTION } from '../constants/skills';
+import { CURRENTLY_LEARNING } from '../constants/skills';
 import { ExpandButton, SkillTag } from './ui';
 import { useExpandableList } from '../hooks';
 import SkillBubble from './SkillBubble';
-import { LAYOUT_STYLES, TYPOGRAPHY_STYLES } from '../constants/styles';
+
+import { useTranslations } from 'next-intl';
 
 export default function Skills() {
+  const t = useTranslations('skills');
+
   const {
     displayedItems: displayedSkills,
     isExpanded: showAllSkills,
@@ -16,20 +19,20 @@ export default function Skills() {
   } = useExpandableList({ items: SKILL_BUBBLE_ITEMS, defaultShowCount: 8 });
 
   return (
-    <section id="skills" className={LAYOUT_STYLES.section}>
-      <div className={LAYOUT_STYLES.containerCenter}>
-        <div className={`${TYPOGRAPHY_STYLES.textCenter} ${LAYOUT_STYLES.mb10}`}>
-          <h2 className={TYPOGRAPHY_STYLES.h2}>{SKILLS_SECTION.title}</h2>
-          <p className={TYPOGRAPHY_STYLES.subtitle}>{SKILLS_SECTION.subtitle}</p>
+    <section id="skills" className="section">
+      <div className="container-center">
+        <div className="mb-10 text-center">
+          <h2 className="h2">{t('title')}</h2>
+          <p className="subtitle">{t('subtitle')}</p>
         </div>
 
-        <div className={`${LAYOUT_STYLES.mb10} ${LAYOUT_STYLES.flexCenter}`}>
+        <div className="flex-center mb-10">
           {displayedSkills.map((skill, index) => (
             <SkillTag key={index} name={skill.name} />
           ))}
         </div>
 
-        <div className={`${LAYOUT_STYLES.mb10} ${TYPOGRAPHY_STYLES.textCenter}`}>
+        <div className="mb-10 text-center">
           <ExpandButton
             isExpanded={showAllSkills}
             onToggle={toggleShowAllSkills}
@@ -38,15 +41,13 @@ export default function Skills() {
           />
         </div>
 
-        <div className={`${LAYOUT_STYLES.mb10} flex justify-center`}>
+        <div className="mb-10 flex justify-center">
           <SkillBubble items={SKILL_BUBBLE_ITEMS} />
         </div>
 
-        <div className={TYPOGRAPHY_STYLES.textCenter}>
-          <h3 className={`${TYPOGRAPHY_STYLES.h3} ${LAYOUT_STYLES.mb8}`}>
-            {SKILLS_SECTION.currentlyLearningTitle}
-          </h3>
-          <div className={LAYOUT_STYLES.flexCenter}>
+        <div className="text-center">
+          <h3 className="h3 mb-8">{t('currentlyLearningTitle')}</h3>
+          <div className="flex-center">
             {CURRENTLY_LEARNING.map((skill, index) => (
               <SkillTag key={index} name={skill} variant="learning" />
             ))}

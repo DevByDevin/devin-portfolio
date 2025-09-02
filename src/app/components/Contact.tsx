@@ -16,9 +16,12 @@ import {
   GithubLogoIcon,
   LinkedinLogoIcon,
 } from './ui';
-import { LAYOUT_STYLES, TYPOGRAPHY_STYLES, CARD_STYLES, FORM_STYLES } from '../constants/styles';
+
+import { useTranslations } from 'next-intl';
 
 export default function Contact() {
+  const t = useTranslations('contact');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -100,58 +103,55 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className={LAYOUT_STYLES.section}>
-      <div className={LAYOUT_STYLES.container}>
-        <SectionHeader
-          title="Get In Touch"
-          description="I'm always open to discussing new opportunities, interesting projects, or just having a chat."
-        />
+    <section id="contact" className="section">
+      <div className="container">
+        <SectionHeader title={t('title')} description={t('description')} />
 
-        <div className={LAYOUT_STYLES.grid2Cols}>
-          <div className={CARD_STYLES.cardLarge}>
-            <h3 className={TYPOGRAPHY_STYLES.h3}>Send Me a Message</h3>
+        <div className="grid-2-cols">
+          <div className="card-large">
+            <h3 className="h3">{t('form.title')}</h3>
 
-            <form onSubmit={handleSubmit} className={FORM_STYLES.form}>
+            <form onSubmit={handleSubmit} className="form">
               <FormInput
                 id="name"
                 name="name"
-                label="Name"
+                label={t('form.name')}
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your name"
+                placeholder={t('form.namePlaceholder')}
                 required
               />
 
               <FormInput
                 id="email"
                 name="email"
-                label="Email"
+                label={t('form.email')}
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="your.email@example.com"
+                placeholder={t('form.emailPlaceholder')}
                 required
               />
 
               <FormInput
                 id="subject"
                 name="subject"
-                label="Subject"
+                label={t('form.subject')}
                 type="text"
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder="What's this about?"
+                placeholder={t('form.subjectPlaceholder')}
                 required
               />
 
               <FormTextarea
                 id="message"
                 name="message"
-                label="Message"
+                label={t('form.message')}
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Tell me more about your project or inquiry..."
+                placeholder={t('form.messagePlaceholder')}
                 required
               />
 
@@ -178,66 +178,64 @@ export default function Contact() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    Sending...
+                    {t('form.sending')}
                   </>
                 ) : (
-                  'Send Message'
+                  t('form.sendButton')
                 )}
               </Button>
 
               {submitStatus === 'success' && (
-                <StatusMessage
-                  type="success"
-                  message="Message sent successfully! I'll get back to you soon."
-                />
+                <StatusMessage type="success" message={t('status.success')} />
               )}
 
               {submitStatus === 'error' && (
-                <StatusMessage
-                  type="error"
-                  message="Failed to send message. Please try again or contact me directly."
-                />
+                <StatusMessage type="error" message={t('status.error')} />
               )}
             </form>
           </div>
 
-          <div className={LAYOUT_STYLES.spaceY8}>
+          <div className="space-y-8">
             <div>
-              <h3 className={TYPOGRAPHY_STYLES.h3}>Let&apos;s Connect</h3>
+              <h3 className="h3">{t('connect.title')}</h3>
               <p className="mb-8 leading-relaxed text-gray-600 dark:text-gray-300">
-                I&apos;m currently available for freelance work and full-time opportunities. Whether
-                you have a question or just want to say hi, I&apos;ll try my best to get back to
-                you!
+                {t('connect.description')}
               </p>
             </div>
 
-            <div className={LAYOUT_STYLES.spaceY6}>
+            <div className="space-y-6">
               <ContactInfoCard
                 icon={<EnvelopeIcon />}
-                title="Email"
+                title={t('info.email')}
                 content="devinhworks@gmail.com"
               />
 
-              <ContactInfoCard icon={<MapPinIcon />} title="Location" content="Sunnyvale, CA" />
+              <ContactInfoCard
+                icon={<MapPinIcon />}
+                title={t('info.location')}
+                content="Sunnyvale, CA"
+              />
 
               <ContactInfoCard
                 icon={<BriefcaseIcon />}
-                title="Availability"
-                content="Open to new opportunities"
+                title={t('info.availability')}
+                content={t('info.availabilityText')}
               />
             </div>
 
             <div className="pt-6">
-              <h4 className="mb-4 font-medium text-gray-900 dark:text-white">Follow Me</h4>
+              <h4 className="mb-4 font-medium text-gray-900 dark:text-white">
+                {t('connect.followMe')}
+              </h4>
               <div className="flex space-x-4">
                 <SocialLink
                   href="https://github.com/DevByDevin"
-                  icon={<GithubLogoIcon />}
+                  icon={<GithubLogoIcon size={28} />}
                   label="GitHub"
                 />
                 <SocialLink
                   href="https://www.linkedin.com/in/devinh1109/"
-                  icon={<LinkedinLogoIcon />}
+                  icon={<LinkedinLogoIcon size={28} />}
                   label="LinkedIn"
                 />
               </div>

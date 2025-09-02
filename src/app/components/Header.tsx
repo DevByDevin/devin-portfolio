@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import {
-  LAYOUT_STYLES,
-  TYPOGRAPHY_STYLES,
-  BUTTON_STYLES,
-  NAVIGATION_STYLES,
-} from '../constants/styles';
+
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
+  const locale = useLocale();
+  const router = useRouter();
+  const t = useTranslations('header');
 
   useEffect(() => {
     setMounted(true);
@@ -21,6 +21,11 @@ export default function Header() {
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  const toggleLanguage = () => {
+    const newLocale = locale === 'en' ? 'zh' : 'en';
+    router.push(`/${newLocale}`);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -51,29 +56,27 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'about', label: t('nav.about') },
+    { id: 'skills', label: t('nav.skills') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'contact', label: t('nav.contact') },
   ];
 
   return (
-    <header className={NAVIGATION_STYLES.header}>
-      <div className={NAVIGATION_STYLES.headerContainer}>
-        <div className={NAVIGATION_STYLES.headerContent}>
-          <div className={NAVIGATION_STYLES.navItem}>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">Devin Han</h1>
+    <header className="header">
+      <div className="header-container">
+        <div className="header-content">
+          <div className="nav-item">
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white">{t('title')}</h1>
           </div>
 
-          <nav className={NAVIGATION_STYLES.navItems}>
+          <nav className="nav-items">
             {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`${BUTTON_STYLES.navButton} ${
-                  activeSection === item.id
-                    ? BUTTON_STYLES.navButtonActive
-                    : BUTTON_STYLES.navButtonInactive
+                className={`nav-button ${
+                  activeSection === item.id ? 'nav-button-active' : 'nav-button-inactive'
                 }`}
               >
                 {item.label}
@@ -83,8 +86,16 @@ export default function Header() {
 
           <div className="flex items-center space-x-4">
             <button
+              onClick={toggleLanguage}
+              className="theme-button"
+              aria-label={`Switch to ${locale === 'en' ? 'Chinese' : 'English'} language`}
+            >
+              {locale === 'en' ? t('languageSwitch.zh') : t('languageSwitch.en')}
+            </button>
+
+            <button
               onClick={toggleTheme}
-              className={BUTTON_STYLES.themeButton}
+              className="theme-button"
               aria-label={`Switch to ${
                 mounted && resolvedTheme === 'light' ? 'dark' : 'light'
               } mode`}
@@ -92,10 +103,7 @@ export default function Header() {
               {mounted ? (resolvedTheme === 'dark' ? '🌞' : '🌙') : '🌙'}
             </button>
 
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`${BUTTON_STYLES.themeButton} md:hidden`}
-            >
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="theme-button md:hidden">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
@@ -116,9 +124,7 @@ export default function Header() {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full rounded-lg px-3 py-2 text-left transition-all duration-300 ${
-                    activeSection === item.id
-                      ? BUTTON_STYLES.navButtonActive
-                      : BUTTON_STYLES.navButtonInactive
+                    activeSection === item.id ? 'nav-button-active' : 'nav-button-inactive'
                   }`}
                 >
                   {item.label}

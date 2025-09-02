@@ -1,0 +1,81 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Devin Han",
+    "title": "Global Full-Stack Developer & Digital Nomad",
+    "description": "From China to the US, I've built my career across continents. Ready to work globally and bring innovative solutions to teams worldwide.",
+    "viewWork": "View My Work",
+    "getInTouch": "Get In Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know me better",
+    "whoIAmTitle": "Who I Am",
+    "quickFactsTitle": "Quick Facts",
+    "quickFacts": {
+      "fullStack": "Full-Stack Development",
+      "reactExpert": "React & Next.js Expert",
+      "nodejs": "Node.js & TypeScript",
+      "uiux": "UI/UX Design",
+      "database": "Database Design"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed"
+    },
+    "description": [
+      "I'm a passionate full-stack developer with a love for creating innovative solutions. With expertise in modern web technologies, I enjoy turning complex problems into simple, beautiful, and intuitive designs.",
+      "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community."
+    ]
+  },
+  "header": {
+    "title": "Devin Han",
+    "nav": {
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "languageSwitch": {
+      "en": "EN",
+      "zh": "中文"
+    }
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "subtitle": "My technical expertise and tools I use",
+    "currentlyLearningTitle": "Currently Learning"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat.",
+    "form": {
+      "title": "Send Me a Message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your.email@example.com",
+      "subjectPlaceholder": "What's this about?",
+      "messagePlaceholder": "Tell me more about your project or inquiry...",
+      "sendButton": "Send",
+      "sending": "Sending..."
+    },
+    "status": {
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Failed to send message. Please try again or contact me directly."
+    },
+    "connect": {
+      "title": "Let's Connect",
+      "description": "I'm currently available for freelance work and full-time opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+      "followMe": "Follow Me"
+    },
+    "info": {
+      "email": "Email",
+      "location": "Location",
+      "availability": "Availability",
+      "availabilityText": "Open to new opportunities"
+    }
+  }
+}

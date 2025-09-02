@@ -185,7 +185,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Contact
 
-- **Portfolio**: [devinhan.dev](https://devinhan.dev)
+- **Portfolio**: [devinhan.info](https://devinhan.info)
 - **Email**: devinhworks@gmail.com
 - **GitHub**: [@DevByDevin](https://github.com/DevByDevin)
 - **LinkedIn**: [Devin Han](https://www.linkedin.com/in/devinh1109/)

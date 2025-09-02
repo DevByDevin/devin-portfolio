@@ -37,10 +37,10 @@ export const ARCS_DATA = [
 ];
 
 export const RINGS_DATA = [
-  { lat: 38.0428, lng: 114.5149, color: '#FF6B6B' }, // 石家庄 - 红色
-  { lat: 39.9042, lng: 116.4074, color: '#4ECDC4' }, // 北京 - 青色
-  { lat: 40.7128, lng: -74.006, color: '#45B7D1' }, // 纽约 - 蓝色
-  { lat: 43.0481, lng: -76.1474, color: '#96CEB4' }, // Syracuse - 绿色
-  { lat: 47.6062, lng: -122.3321, color: '#FFEAA7' }, // 西雅图 - 黄色
-  { lat: 37.3688, lng: -122.0363, color: '#DDA0DD' }, // Sunnyvale - 紫色
+  { lat: 38.0428, lng: 114.5149, color: '#FF6B6B' },
+  { lat: 39.9042, lng: 116.4074, color: '#4ECDC4' },
+  { lat: 40.7128, lng: -74.006, color: '#45B7D1' },
+  { lat: 43.0481, lng: -76.1474, color: '#96CEB4' },
+  { lat: 47.6062, lng: -122.3321, color: '#FFEAA7' },
+  { lat: 37.3688, lng: -122.0363, color: '#DDA0DD' },
 ];

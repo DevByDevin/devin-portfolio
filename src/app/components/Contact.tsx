@@ -15,8 +15,8 @@ import {
   BriefcaseIcon,
   GithubLogoIcon,
   LinkedinLogoIcon,
-  TwitterLogoIcon,
 } from './ui';
+import { LAYOUT_STYLES, TYPOGRAPHY_STYLES, CARD_STYLES, FORM_STYLES } from '../constants/styles';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -100,20 +100,18 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="contact" className={LAYOUT_STYLES.section}>
+      <div className={LAYOUT_STYLES.container}>
         <SectionHeader
           title="Get In Touch"
           description="I'm always open to discussing new opportunities, interesting projects, or just having a chat."
         />
 
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <h3 className="mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-              Send Me a Message
-            </h3>
+        <div className={LAYOUT_STYLES.grid2Cols}>
+          <div className={CARD_STYLES.cardLarge}>
+            <h3 className={TYPOGRAPHY_STYLES.h3}>Send Me a Message</h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className={FORM_STYLES.form}>
               <FormInput
                 id="name"
                 name="name"
@@ -203,11 +201,9 @@ export default function Contact() {
             </form>
           </div>
 
-          <div className="space-y-8">
+          <div className={LAYOUT_STYLES.spaceY8}>
             <div>
-              <h3 className="mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                Let&apos;s Connect
-              </h3>
+              <h3 className={TYPOGRAPHY_STYLES.h3}>Let&apos;s Connect</h3>
               <p className="mb-8 leading-relaxed text-gray-600 dark:text-gray-300">
                 I&apos;m currently available for freelance work and full-time opportunities. Whether
                 you have a question or just want to say hi, I&apos;ll try my best to get back to
@@ -215,7 +211,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className={LAYOUT_STYLES.spaceY6}>
               <ContactInfoCard
                 icon={<EnvelopeIcon />}
                 title="Email"

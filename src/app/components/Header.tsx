@@ -2,6 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+import {
+  LAYOUT_STYLES,
+  TYPOGRAPHY_STYLES,
+  BUTTON_STYLES,
+  NAVIGATION_STYLES,
+} from '../constants/styles';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,22 +58,22 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex-shrink-0">
+    <header className={NAVIGATION_STYLES.header}>
+      <div className={NAVIGATION_STYLES.headerContainer}>
+        <div className={NAVIGATION_STYLES.headerContent}>
+          <div className={NAVIGATION_STYLES.navItem}>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Devin Han</h1>
           </div>
 
-          <nav className="hidden space-x-8 md:flex">
+          <nav className={NAVIGATION_STYLES.navItems}>
             {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative rounded-lg px-3 py-2 transition-all duration-300 ${
+                className={`${BUTTON_STYLES.navButton} ${
                   activeSection === item.id
-                    ? 'bg-blue-50 font-medium text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
-                    : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800/50 dark:hover:text-white'
+                    ? BUTTON_STYLES.navButtonActive
+                    : BUTTON_STYLES.navButtonInactive
                 }`}
               >
                 {item.label}
@@ -78,7 +84,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="rounded-lg bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
+              className={BUTTON_STYLES.themeButton}
               aria-label={`Switch to ${
                 mounted && resolvedTheme === 'light' ? 'dark' : 'light'
               } mode`}
@@ -88,7 +94,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="rounded-lg bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-gray-200 md:hidden dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
+              className={`${BUTTON_STYLES.themeButton} md:hidden`}
             >
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -111,8 +117,8 @@ export default function Header() {
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full rounded-lg px-3 py-2 text-left transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-blue-50 font-medium text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800/50 dark:hover:text-white'
+                      ? BUTTON_STYLES.navButtonActive
+                      : BUTTON_STYLES.navButtonInactive
                   }`}
                 >
                   {item.label}

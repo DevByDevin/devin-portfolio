@@ -27,7 +27,7 @@ export default function Globe3D() {
   };
 
   return (
-    <div className="mb-10 flex h-80 w-full items-center justify-center sm:h-128">
+    <div className="flex h-80 w-full items-center justify-center sm:h-128">
       <Globe
         ref={globeRef}
         height={globeSize}

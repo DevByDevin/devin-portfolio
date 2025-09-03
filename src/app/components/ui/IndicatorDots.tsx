@@ -15,7 +15,7 @@ export default function IndicatorDots({
 }: IndicatorDotsProps) {
   return (
     <div className={`flex justify-center ${className}`}>
-      <div className="flex gap-1.5 sm:gap-2">
+      <div className="flex-center-gap-sm">
         {Array.from({ length: total }).map((_, index) => (
           <button
             key={index}

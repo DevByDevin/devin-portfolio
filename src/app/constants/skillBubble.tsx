@@ -88,6 +88,6 @@ export interface SkillBubbleItem {
 export const SKILL_BUBBLE_ITEMS = SKILL_BUBBLE_DATA.map((data, index) => ({
   index: index,
   name: data.name,
-  icon: <IconComponent icon={data.icon} className="h-6 w-6 sm:h-10 sm:w-10" />,
+  icon: <IconComponent icon={data.icon} className="icon-responsive" />,
   color: data.color,
 }));

@@ -436,11 +436,7 @@
 
 /* Button Styles */
 .btn-nav {
-  @apply flex h-10 w-10 items-center justify-center rounded-full bg-transparent p-2 text-black transition-all duration-500 hover:bg-gray-800/30 sm:h-11 sm:w-11 sm:p-2.5 lg:h-12 lg:w-12 lg:p-3;
-}
-
-.btn-nav-dark {
-  @apply flex h-10 w-10 items-center justify-center rounded-full bg-transparent p-2 text-white transition-all duration-500 hover:bg-white/30 sm:h-11 sm:w-11 sm:p-2.5 lg:h-12 lg:w-12 lg:p-3;
+  @apply flex h-10 w-10 items-center justify-center rounded-full bg-transparent p-2 text-black transition-all duration-500 hover:bg-gray-800/30 sm:h-11 sm:w-11 sm:p-2.5 lg:h-12 lg:w-12 lg:p-3 dark:text-white;
 }
 
 /* Text Styles */

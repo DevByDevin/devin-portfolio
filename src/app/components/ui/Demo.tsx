@@ -1012,6 +1012,6 @@ const Demo = (props: any) => {
   );
 };
 
-useGLTF.preload('/models/projects/computer.glb');
+useGLTF.preload('/models/computer.glb');
 
 export default Demo;

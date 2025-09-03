@@ -2,9 +2,8 @@
 
 import { Center, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import Demo from './ui/Demo';
-import { useState } from 'react';
 import { PROJECTS } from '../constants/projects';
 import ProjectCard from './ui/ProjectCard';
 import NavigationArrows from './ui/NavigationArrows';

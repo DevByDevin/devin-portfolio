@@ -4,9 +4,3 @@ export const CURRENTLY_LEARNING: string[] = [
   'WebQL & Three.js',
   'Pixijs',
 ];
-
-export const SKILLS_SECTION = {
-  title: 'Skills & Technologies',
-  subtitle: 'My technical expertise and tools I use',
-  currentlyLearningTitle: 'Currently Learning',
-};

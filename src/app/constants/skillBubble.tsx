@@ -75,7 +75,7 @@ const SKILL_BUBBLE_DATA: SkillBubbleData[] = [
   { icon: siI18next, name: 'I18next', color: '#26A69A' },
   { icon: siStorybook, name: 'Storybook', color: '#FFB74D' },
   { icon: siOpenai, name: 'OpenAI', color: '#AB47BC' },
-  { icon: siClaude, name: 'Express', color: '#EF5350' },
+  { icon: siClaude, name: 'Claude', color: '#EF5350' },
 ];
 
 export interface SkillBubbleItem {

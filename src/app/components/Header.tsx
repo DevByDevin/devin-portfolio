@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 

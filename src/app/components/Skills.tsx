@@ -5,7 +5,6 @@ import { CURRENTLY_LEARNING } from '../constants/skills';
 import { ExpandButton, SkillTag } from './ui';
 import { useExpandableList } from '../hooks';
 import SkillBubble from './ui/SkillBubble';
-
 import { useTranslations } from 'next-intl';
 
 export default function Skills() {

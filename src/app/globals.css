@@ -490,3 +490,32 @@
 .loading-spinner-lg {
   @apply mr-4 h-6 w-6 animate-spin text-white;
 }
+
+/* Button Component Styles */
+.btn-base {
+  @apply flex items-center justify-center rounded-lg font-medium transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 disabled:bg-blue-400;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 text-white hover:bg-gray-700 disabled:bg-gray-400;
+}
+
+.btn-outline {
+  @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600;
+}
+
+.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn-md {
+  @apply px-6 py-3;
+}
+
+.btn-lg {
+  @apply px-8 py-4 text-lg;
+}

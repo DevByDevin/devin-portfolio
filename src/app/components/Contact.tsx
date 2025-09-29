@@ -215,7 +215,7 @@ export default function Contact() {
                   label="GitHub"
                 />
                 <SocialLink
-                  href="https://www.linkedin.com/in/devinh1109/"
+                  href="https://www.linkedin.com/in/devbydevin/"
                   icon={<LinkedinLogoIcon size={28} />}
                   label="LinkedIn"
                 />
